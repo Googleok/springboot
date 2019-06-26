@@ -53,7 +53,10 @@ public class GuestbookController {
 		return "guestbook/deleteform";
 	}
 	
-
+	@RequestMapping(value="/timeline") // post 방식으로 오면 insert
+	public String timeline() {
+		return "guestbook/index-timeline";
+	}	
 
 }
 

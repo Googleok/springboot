@@ -1,0 +1,104 @@
+@CHARSET "UTF-8";
+@import "mysite.css";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+
+#gallery			{ margin:20px auto;	width:540px; }
+#gallery ul			{ width: 100%; }
+
+
+/* 이미지 업로드 팝업 레이어 */ 
+#dialog-upload-form 					{ text-align: left; }
+#dialog-upload-form p					{ padding:20px 0 5px 0; font-weight: bold; font-size:1.1em }
+#dialog-upload-form label, 
+#dialog-upload-form input				{ display:block; }
+#dialog-upload-form label				{ font-weight:bold; margin-top:10px; }
+#dialog-upload-form input				{ outline:none; margin-top:5px; }
+#dialog-upload-form input[type='text']	{ padding: 5px; border:2px solid #A9A9A9; width:260px; }
+
+#gallery {
+	margin: 20px auto;
+	width: 540px;
+}
+
+#gallery h1 {
+	color:white;
+	background: url('/assets/images/gallery.png') no-repeat 0 0;
+	background-size: 32px;
+	padding-left: 38px;
+	margin-bottom: 0px;
+	float: left;
+}
+
+#gallery-header {
+	margin-bottom: 15px;
+}
+
+#upload-image {
+	margin-left: 350px;
+}
+
+/*
+#upload-image {
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+	text-decoration: none;
+	font-size: 12px;
+	font-weight: bold;
+	color: #000;
+	border: 1px solid #000;
+	width: 118px;
+	height: 38px;
+	line-height: 38px; 
+	float: right;
+	margin-left: 300px;
+	color:white;
+	background-color: black;
+	border-radius: 10px;
+}
+#upload-image:hover, #upload-image:active{
+ 	background-color: #FF4500;
+}
+
+ */
+ 
+ 
+#gallery ul li {
+	position: relative;
+	float: left;
+	width: 120px;
+	height: 140px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	border: 2px solid #999;
+}
+
+a.image {
+	display: block;
+	width: 120px;
+	height: 140px;
+	background-size: 120px 100%;
+	background-repeat: no-repeat;
+}
+
+a.del-button {
+	display: none;
+	width:20px;
+	height: 20px;
+	background-image: url('/assets/images/close.png');
+	background-size: 20px;
+	background-repeat: no-repeat;
+	position: absolute;
+	left: 100px;
+	bottom: 120px;
+	font-size:0;
+}
+
+li:hover .del-button {
+	display: block;
+} 
