@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 
 import com.cafe24.mysite.repository.GuestbookDao;
 import com.cafe24.mysite.vo.GuestbookVo;
+import com.cafe24.mysite.vo.ModalVo;
 
 @Service
 public class GuestbookService {
@@ -32,6 +33,15 @@ public class GuestbookService {
 		
 		return guestbookdao.delete(guestbookVo);
 	
+	}
+
+	public void modal(String email, String password, String content) {
+		guestbookdao.modal(email, password, content);
+	}
+
+	public void modalList(Model model) {
+		List<ModalVo> list = guestbookdao.getModalList();
+		model.addAttribute("modalList", list);
 	}
 	
 }

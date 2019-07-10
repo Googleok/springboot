@@ -57,7 +57,19 @@ public class GuestbookController {
 	public String timeline() {
 		return "guestbook/index-timeline";
 	}	
+	
+	@RequestMapping(value="/modal", method = RequestMethod.GET) // post 방식으로 오면 insert
+	public String modal(Model model) {
+		guestbookService.modalList(model);
+		return "guestbook/modal";
+	}
 
+	@RequestMapping(value="/modal", method = RequestMethod.POST) // post 방식으로 오면 insert
+	public String modal(@RequestParam String email, @RequestParam String password, @RequestParam String content) {
+		System.out.println(email + ":" + password + ":" + content);
+		guestbookService.modal(email, password, content);
+		return "redirect:/guestbook/modal";
+	}
 }
 
 

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="modal">
+	<insert id="insert" parameterType="map">
+		<![CDATA[
+			insert into modal values(null, #{email}, #{password}, #{contents}, now())
+		]]>
+	</insert>
+	
+	<select id="getList" resultType="modalvo" >
+		<![CDATA[
+			select no, email, password, contents, date_format(reg_date,'%Y-%m-%d %h:%i:%s') as regDate
+			 from modal
+			order by reg_date desc
+		]]>
+	</select>
+	
+</mapper>

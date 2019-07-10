@@ -1,6 +1,8 @@
 package com.cafe24.mysite.repository;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.sql.DataSource;
 
@@ -9,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.cafe24.mysite.vo.GuestbookVo;
+import com.cafe24.mysite.vo.ModalVo;
 
 @Repository
 public class GuestbookDao {
@@ -39,6 +42,20 @@ public class GuestbookDao {
 		
 		return 1 == count;
 
+	}
+
+	public void modal(String email, String password, String content) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("email", email);
+		map.put("password", password);
+		map.put("contents", content);
+		sqlSession.insert("modal.insert", map);
+	}
+
+	public List<ModalVo> getModalList() {
+		List<ModalVo> result = sqlSession.selectList("modal.getList");
+		System.out.println(result+"=================");
+		return result;
 	}
 	
 
