@@ -6,6 +6,9 @@
 		<![CDATA[
 			insert into guestbook values(null,#{name},#{password},#{contents},now())
 		]]>
+		<selectKey keyProperty="no" resultType="long" order="AFTER">
+			select last_insert_id()
+		</selectKey>
 	</insert>
 	
 	
@@ -30,6 +33,21 @@
 		</if>
 	</select>
 
+	<select id="getList3" resultType="guestbookvo" parameterType="long">
+		<![CDATA[
+			select no, name, contents, date_format(reg_date,'%Y-%m-%d %h:%i:%s')
+			 from guestbook
+		]]>
+		<if test="_parameter > 0">
+		<![CDATA[
+			where no < #{_parameter}
+		]]>
+		</if>
+		<![CDATA[
+			order by no desc
+			limit 0, 5
+		]]>
+	</select>
 	
 	<delete id="delete" parameterType="guestbookvo">
 		<![CDATA[

@@ -138,7 +138,7 @@ body {
 								<h4 class="modal-title" id="dlogLabel">연남동 갈사람!</h4>
 							</div>
 							<div class="modal-body">
-								<form class="form-horizontal" id="frm" role="form" action="${pageContext.servletContext.contextPath }/guestbook/modal" method="post">
+								<form class="form-horizontal" id="frm" role="form" action="${pageContext.servletContext.contextPath }/guestbook/secret" method="post">
 									<div class="form-group">
 										<label for="email" class="col-xs-2 col-lg-2 control-label">이름</label>
 										<div class="col-xs-10 col-lg-10">

@@ -23,7 +23,7 @@ public class BoardController {
    @Autowired 
    private BoardService boardService;
   
-   @RequestMapping("/list") //아무것도 안쓰면 get, post 다 들어옴
+   @RequestMapping({"/list", ""}) //아무것도 안쓰면 get, post 다 들어옴
    public String list(Model model,@ModelAttribute BoardVo boardVo,@RequestParam(value="keyword", required=true, defaultValue="") String keyword,
                 @RequestParam(value="curPage",required=true ,defaultValue="1") int curPage)
    {

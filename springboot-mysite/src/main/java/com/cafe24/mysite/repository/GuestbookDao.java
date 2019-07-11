@@ -21,13 +21,15 @@ public class GuestbookDao {
 	
 	
 	public List<GuestbookVo> getList() {
-
-		//List<GuestbookVo> result = new ArrayList<GuestbookVo>();
-
 		List<GuestbookVo> result = sqlSession.selectList("guestbook.getList");
 		return result;
 	}
 
+	public List<GuestbookVo> getList(Long lastNo) {
+		List<GuestbookVo> result = sqlSession.selectList("guestbook.getList3", lastNo);
+		return result;
+	}
+	
 	public boolean insert(GuestbookVo vo) {
 
 		int count = sqlSession.insert("guestbook.insert",vo);

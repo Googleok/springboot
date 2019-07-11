@@ -1,5 +1,6 @@
 package com.cafe24.mysite.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,10 +9,9 @@ import org.springframework.ui.Model;
 
 import com.cafe24.mysite.repository.GuestbookDao;
 import com.cafe24.mysite.vo.GuestbookVo;
-import com.cafe24.mysite.vo.ModalVo;
 
 @Service
-public class GuestbookService {
+public class GuestbookService2 {
 	
 	@Autowired
 	private GuestbookDao guestbookDao;
@@ -23,11 +23,12 @@ public class GuestbookService {
 		
 	}
 	
-	public List<GuestbookVo> getList(Long startNo) {
+	public List<GuestbookVo> getList(Long lastNo) {
 
-		return guestbookDao.getList(startNo);
+		List<GuestbookVo> list = guestbookDao.getList(lastNo);
+		return list;
 	}
-
+	
 	public boolean insert(GuestbookVo guestbookVo) {
 		
 		return guestbookDao.insert(guestbookVo);
@@ -40,13 +41,14 @@ public class GuestbookService {
 	
 	}
 
-	public void modal(String email, String password, String content) {
-		guestbookDao.modal(email, password, content);
+	public GuestbookVo addContents(GuestbookVo guestbookVo) {
+		guestbookVo.setNo(10L);
+		guestbookVo.setRegdate("2019-07-10 00:00:00");
+		return guestbookVo;
 	}
 
-	public void modalList(Model model) {
-		List<ModalVo> list = guestbookDao.getModalList();
-		model.addAttribute("modalList", list);
+	public Long deleteContents(Long no, String  password) {
+		return no;
 	}
-	
+
 }
