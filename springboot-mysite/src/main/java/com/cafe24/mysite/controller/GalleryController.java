@@ -11,4 +11,6 @@ public class GalleryController {
 	public String list() {
 		return "gallery/index";
 	}
+	
+	
 }

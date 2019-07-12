@@ -39,7 +39,7 @@ public class GuestbookDao {
 	}
 	
 	public boolean delete(GuestbookVo vo) {
-
+		System.out.println("dao = " + vo);
 		int count = sqlSession.delete("guestbook.delete",vo);
 		
 		return 1 == count;

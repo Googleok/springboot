@@ -36,7 +36,6 @@
 		</dependency>
 
 
-
 		<!-- Common DBCP -->
 		<dependency>
 			<groupId>commons-dbcp</groupId>

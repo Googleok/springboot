@@ -25,7 +25,10 @@ $(function(){
 		modal: true,
 		buttons: {
 			"업로드": function() {
-				$( "#dialog-upload-form form" ).submit();
+			//	$( "#dialog-upload-form form" ).submit();
+				var comments = $("#input-comments").val();
+				var file = $("#input-file").val()
+				console.log(comments, file);
 				$( this ).dialog( "close" );
 			},
 			"취소" : function() {
@@ -38,12 +41,12 @@ $(function(){
 	});
 		
 	$("#upload-image").click( function(event) {
+		console.log('click');
 		event.preventDefault();
 		dialogUpload.dialog( "open" );
 	});
 });	
 </script>
-<script src="/assets/js/jquery/jquery-1.9.0.js"></script>
 </head>
 <body>
 	<div id="container">
